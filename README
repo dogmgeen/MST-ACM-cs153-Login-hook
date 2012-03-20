@@ -3,6 +3,14 @@ The Problem
 
 A user is told about our Linux machine, but they cannot be bothered with taking the appropriate steps to establish their own user-account on the system. Thus, all they need to do is log into the Linux machine using the commons account. This commons account will setup their user account on the machine and then immediately exist. Thats it! Now, all they need to do is relogin!
 
+Todo
+====
+
++ Make sure one user in the usergroup cs153sp2012 cannot see the files of another user in the usergroup cs153sp2012
++ Make sure a user in the usergroup cs153sp2012 cannot look inside of the dropbox and analyze the submitted files
++ Remove all other user accounts that existed before this time, with the exception of: eloe, cs153, lm, tori, overlord
++ Transfer all backup files to another host
+
 Further reading
 ===============
 
