@@ -9,3 +9,4 @@ echo "$DATE - $IP" >> /var/log/ssh_connections.log
 
 # Run the login.sh to setup the user's profile
 login.sh
+
