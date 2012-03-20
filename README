@@ -3,6 +3,25 @@ The Problem
 
 A user is told about our Linux machine, but they cannot be bothered with taking the appropriate steps to establish their own user-account on the system. Thus, all they need to do is log into the Linux machine using the commons account. This commons account will setup their user account on the machine and then immediately exist. Thats it! Now, all they need to do is relogin!
 
+Setup
+=====
+
+1. On your Linux machine, create a dummy user.
+     For this example, the user is 'cs153'.
+2. Swap out the default ~/.ssh/rc with the one provided in this project.
+3. Copy the login.sh into ~/.ssh/rc
+     We can change the location of the login.sh file at a later time.
+4. Done!
+
+Expectations
+============
+
+Any user should be able to log into the system using the credentials for the dummy user.
+The dummy user should not be given access to the shell.
+Any user should not be able to break out of the login.sh shell by any means (such as Ctrl+C when prompted to provide input).
+When login.sh has completed execution, the user should immediately be logged off of the Linux machine.
+After being kicked off the Linux machine, the user should be able to log back in with the username and password that they provided.
+
 Todo
 ====
 
@@ -10,6 +29,7 @@ Todo
 + Make sure a user in the usergroup cs153sp2012 cannot look inside of the dropbox and analyze the submitted files
 + Remove all other user accounts that existed before this time, with the exception of: eloe, cs153, lm, tori, overlord
 + Transfer all backup files to another host
++ What happens if a useraccount already exists, and a user tries to add the same one again? Is this a security risk?
 
 Further reading
 ===============
