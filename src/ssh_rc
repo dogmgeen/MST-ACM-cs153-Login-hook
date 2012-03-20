@@ -1,0 +1,11 @@
+# This will be the common user's sshrc file, which will run the login.sh
+#  script before starting up the shell.
+
+# Log SSH connections
+# Source: http://blog.wains.be/2009/06/06/log-ssh-connections-with-etcsshsshrc/
+DATE=`date "+%d.%m.%Y %Hh%Mm"`
+IP=`echo $SSH_CONNECTION | awk '{print $1}'`
+echo "$DATE - $IP" >> /var/log/ssh_connections.log
+
+# Run the login.sh to setup the user's profile
+
