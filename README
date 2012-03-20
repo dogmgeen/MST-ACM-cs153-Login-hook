@@ -8,9 +8,7 @@ Setup
 
 1. On your Linux machine, create a dummy user.
      For this example, the user is 'cs153'.
-2. Swap out the default ~/.ssh/rc with the one provided in this project.
-3. Copy the login.sh into ~/.ssh/rc
-     We can change the location of the login.sh file at a later time.
+3. Copy the login.sh into a directory accessible only by root.
 4. Done!
 
 Expectations

@@ -15,7 +15,14 @@ USER_HOME="${HOME_DIRECTORY}${user}" && \
 echo \"${user}\":\"${password}\"::${GROUP_NAME}::${USER_HOME}:${USER_SHELL} | newusers && \
 
 echo "You may now log in using the username (\"${user}\") and password you provided." && \
-echo "You will be booted off so that you can use your own user account."
+echo "You will be booted off so that you can use your own user account." && \
+
+# Log the connection to our log
+DATE=`date "+%d.%m.%Y %Hh%Mm"`
+IP=`echo $SSH_CONNECTION | awk '{print $1}'`
+echo "${DATE} - ${IP}\nCreated account for \"${user}\"" >> /var/log/ssh_connections.log
+echo "" >> /var/log/ssh_connections.log
+
 
 # Immediately log out
 
