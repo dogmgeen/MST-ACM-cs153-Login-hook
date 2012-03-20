@@ -1,0 +1,9 @@
+The Problem
+===========
+
+A user is told about our Linux machine, but they cannot be bothered with taking the appropriate steps to establish their own user-account on the system. Thus, all they need to do is log into the Linux machine using the commons account. This commons account will setup their user account on the machine and then immediately exist. Thats it! Now, all they need to do is relogin!
+
+Further reading
+===============
+
+http://unix.stackexchange.com/questions/7390/ssh-login-hook
