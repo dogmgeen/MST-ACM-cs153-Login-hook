@@ -8,10 +8,8 @@ use warnings;
 
 my $getent = "/usr/bin/getent";
 my $echo = "/bin/echo";
-my $newusers = "/usr/sbin/newusers";
-my $mkdir = "/bin/mkdir";
+my $useradd = "/usr/sbin/useradd";
 my $chmod = "/bin/chmod";
-my $chown = "/bin/chown";
 
 my $HOME = "/home/";
 my $SHELL = "/bin/bash";
@@ -36,14 +34,12 @@ if($? == 0) {
 
 my $userhome = $HOME . $user;
 
-my @args = ("echo", "${user}:${password}::${GROUP}::${userhome}:${SHELL}", "|", "newusers");
+my $salt = join '', ('.', '/', 0..9, 'A'..'Z', 'a'..'z')[rand 64, rand 64]; # from http://perldoc.perl.org/functions/crypt.html
+my $cryptedpw = crypt($password, $salt);
 
-`$echo ${user}:${password}::${GROUP}::${userhome}:${SHELL} | $newusers`;
+`$useradd -d $userhome -g $GROUP -m -s $SHELL -p $cryptedpw $user`;
 
-# The following lines ought not to be needed, as newusers creates
-#   the necessary structure automatically.
-#`$mkdir $userhome`;
-#`$chmod 700 $userhome`;
-#`$chown $user:$GROUP $userhome`;
+# Make sure members of the group can't read each other's files
+`$chmod 700 $userhome`;
 
 print "Added user $user\n";
