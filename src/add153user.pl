@@ -1,7 +1,7 @@
 #! /usr/bin/perl -T
 
 # How is this script called from the command line?
-#   $ perl add153users.pl ? ? ?
+#   $ perl add153users.pl <username> <password>
 
 use strict;
 use warnings;
