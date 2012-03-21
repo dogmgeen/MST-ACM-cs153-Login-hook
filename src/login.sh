@@ -12,7 +12,8 @@ USER_HOME="${HOME_DIRECTORY}${user}" && \
 
 # Add this user using the adduser command
 ## UNCOMMENT THE LINE BELOW WHEN READY
-sudo $(echo \"${user}\":\"${password}\"::${GROUP_NAME}::${USER_HOME}:${USER_SHELL} | newusers) && \
+# sudo $(echo \"${user}\":\"${password}\"::${GROUP_NAME}::${USER_HOME}:${USER_SHELL} | newusers) && \
+perl ./add153users.pl "${user}" "${password}" && \
 
 echo "You may now log in using the username (\"${user}\") and password you provided." && \
 echo "You will be booted off so that you can use your own user account." && \
