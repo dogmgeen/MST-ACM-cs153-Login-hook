@@ -1,5 +1,8 @@
 #! /usr/bin/perl -T
 
+# How is this script called from the command line?
+#   $ perl add153users.pl ? ? ?
+
 use strict;
 use warnings;
 
@@ -37,8 +40,10 @@ my @args = ("echo", "${user}:${password}::${GROUP}::${userhome}:${SHELL}", "|", 
 
 `$echo ${user}:${password}::${GROUP}::${userhome}:${SHELL} | $newusers`;
 
-`$mkdir $userhome`;
-`$chmod 700 $userhome`;
-`$chown $user:$GROUP $userhome`;
+# The following lines ought not to be needed, as newusers creates
+#   the necessary structure automatically.
+#`$mkdir $userhome`;
+#`$chmod 700 $userhome`;
+#`$chown $user:$GROUP $userhome`;
 
 print "Added user $user\n";
