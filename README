@@ -9,6 +9,8 @@ Setup
 1. On your Linux machine, create a dummy user.
      For this example, the user is 'cs153'.
 3. Copy the login.sh into a directory accessible only by root.
+5. Copy add153user.pl somewhere too, make root own it, and make it suid (4755)
+7. Learn about even numbers
 4. Done!
 
 Expectations
@@ -19,6 +21,10 @@ The dummy user should not be given access to the shell.
 Any user should not be able to break out of the login.sh shell by any means (such as Ctrl+C when prompted to provide input).
 When login.sh has completed execution, the user should immediately be logged off of the Linux machine.
 After being kicked off the Linux machine, the user should be able to log back in with the username and password that they provided.
+
+Prereqs
+=======
+Have perl-suid installed
 
 Todo
 ====
