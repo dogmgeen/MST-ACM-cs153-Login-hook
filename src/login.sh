@@ -21,8 +21,6 @@ echo "You will be booted off so that you can use your own user account." && \
 DATE=`date "+%d.%m.%Y %Hh%Mm"`
 IP=`echo $SSH_CONNECTION | awk '{print $1}'`
 echo "${DATE} - ${IP}\nCreated account for \"${user}\"" >> /var/log/ssh_connections.log
-echo "" >> /var/log/ssh_connections.log
-
 
 # Immediately log out
 
