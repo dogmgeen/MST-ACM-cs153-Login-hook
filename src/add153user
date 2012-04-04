@@ -1,6 +1,6 @@
 #! /usr/bin/perl -T
 
-# How is this script called from the command line?
+# How is this script called from the command line
 #   $ perl add153users.pl <username> <password>
 
 use strict;
@@ -10,6 +10,7 @@ my $getent = "/usr/bin/getent";
 my $echo = "/bin/echo";
 my $useradd = "/usr/sbin/useradd";
 my $chmod = "/bin/chmod";
+my $newusers = "/usr/sbin/newusers";
 
 my $HOME = "/home/";
 my $SHELL = "/bin/bash";
@@ -34,10 +35,7 @@ if($? == 0) {
 
 my $userhome = $HOME . $user;
 
-my $salt = join '', ('.', '/', 0..9, 'A'..'Z', 'a'..'z')[rand 64, rand 64]; # from http://perldoc.perl.org/functions/crypt.html
-my $cryptedpw = crypt($password, $salt);
-
-`$useradd -d $userhome -g $GROUP -m -s $SHELL -p $cryptedpw $user`;
+`$echo \"$user\":\"$password\"::$GROUP\:\:$userhome:$SHELL | $newusers`;
 
 # Make sure members of the group can't read each other's files
 `$chmod 700 $userhome`;
